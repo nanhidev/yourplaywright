@@ -1,0 +1,32 @@
+{
+  "name": "playwright-project",
+  "version": "1.0.0",
+  "description": "Production-ready Playwright automation framework",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+
+    "smoke": "playwright test --grep @smoke",
+    "regression": "playwright test --grep @regression",
+
+    "test:serial": "playwright test --workers=1",
+    "test:parallel": "playwright test --workers=4",
+
+    "report": "playwright show-report",
+
+    "clean": "rimraf test-results playwright-report",
+
+    "install:browsers": "playwright install",
+
+    "ci": "npm run clean && npm run test",
+
+    "test:env": "node -r dotenv/config node_modules/.bin/playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "dotenv": "^16.4.5",
+    "rimraf": "^5.0.5"
+  }
+}
